@@ -18,4 +18,12 @@ class ProjectController extends Controller
     {
         return response()->json($this->projectService->getList($request->all()));
     }
+    public function create(Request $request)
+    {
+        return response()->json($this->projectService->create($request->all()));
+    }
+    public function show(Request $request, $id)
+    {
+        return response()->json($this->projectService->show($id));
+    }
 }

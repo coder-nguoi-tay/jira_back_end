@@ -36,11 +36,7 @@ Route::middleware([
     // project
     Route::prefix('project')->group(function () {
         Route::get('/list', [ProjectController::class, 'index']);
-        Route::get('{project}/statuses', [StatusController::class, 'index']);
-        Route::get('{project}/tasks', [TaskController::class, 'index']);
-        Route::post('{project}/tasks', [TaskController::class, 'store']);
+        Route::post('/create', [ProjectController::class, 'create']);
+        Route::get('/show/{id}', [ProjectController::class, 'show']);
     });
-
-    Route::patch('/tasks/{task}', [TaskController::class, 'update']);
-    Route::patch('/statuses/{status}', [StatusController::class, 'update']);
 });
